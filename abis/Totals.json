@@ -1,0 +1,395 @@
+[
+    {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [],
+        "name": "InvalidInitialization",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "NotInitializing",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnableInvalidOwner",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }
+        ],
+        "name": "OwnableUnauthorizedAccount",
+        "type": "error"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint64",
+                "name": "version",
+                "type": "uint64"
+            }
+        ],
+        "name": "Initialized",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "version",
+                "type": "string"
+            },
+            {
+                "internalType": "address",
+                "name": "pos",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "oneOverFees",
+                "type": "bool"
+            }
+        ],
+        "name": "getTotalAmounts",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "total0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "total1",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees1",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "pos",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "oneOverFees",
+                "type": "bool"
+            }
+        ],
+        "name": "getTotalAmountsAlgebra1_0",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "total0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "total1",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees1",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "pos",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "oneOverFees",
+                "type": "bool"
+            }
+        ],
+        "name": "getTotalAmountsAlgebra1_1",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "total0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "total1",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees1",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "pos",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "oneOverFees",
+                "type": "bool"
+            }
+        ],
+        "name": "getTotalAmountsAlgebra1_2",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "total0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "total1",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees1",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "pos",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "oneOverFees",
+                "type": "bool"
+            }
+        ],
+        "name": "getTotalAmountsAlgebraIntegral",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "total0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "total1",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees1",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "pos",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "oneOverFees",
+                "type": "bool"
+            }
+        ],
+        "name": "getTotalAmountsRamsesV2",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "total0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "total1",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees1",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "pos",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "oneOverFees",
+                "type": "bool"
+            }
+        ],
+        "name": "getTotalAmountsUniswapV3",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "total0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "total1",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees0",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "fees1",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "initialOwner",
+                "type": "address"
+            }
+        ],
+        "name": "initialize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]

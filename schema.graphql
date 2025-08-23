@@ -1,0 +1,118 @@
+enum TokenType {
+  NATIVE
+  WRAPPED_NATIVE
+  ERC20
+}
+
+enum SnapshotType {
+  INITIAL
+  HOURLY
+  ZERO_BURN
+}
+
+type DeploymentInfo @entity {
+  id: ID!
+  name: String!
+  dex: String!
+  network: String!
+  underlyingProtocol: String!
+  poolVersion: String!
+  poolManager: String!
+  activePairCount: Int!
+  totalPairCount: Int!
+  pairManagers: [PairManager!]! @derivedFrom(field: "deployment")
+  feeCalcMethod: String!
+  blocks1h: BigInt!
+  getTotalsContract: String!
+  getTotalsContractStartBlock: BigInt!
+  codeVersion: String!
+  schemaVersion: String!
+}
+
+type PairManager @entity {
+  id: ID!
+  deployment: DeploymentInfo!
+  name: String!
+  symbol: String!
+  decimals: Int!
+  totalSupply: BigInt!
+  tick: Int!
+  fee: Int!
+  token0: Token!
+  token1: Token!
+  tvl0: BigInt!
+  tvl1: BigInt!
+  tvlTotalInToken1: Float!
+  totalFees0: BigInt!
+  totalFees1: BigInt!
+  totalFeesTotalInToken1: Float!
+  uncollectedFees0: BigInt!
+  uncollectedFees1: BigInt!
+  uncollectedFeesTotalInToken1: Float!
+  feeReturn: PairManagerReturn!
+  active: Boolean! @index
+  feeSnapshotLatest: FeeSnapshot!
+  feeSnapshotHourlyLatest: FeeSnapshot!
+  feeSnapshots: [FeeSnapshot!]! @derivedFrom(field: "pairManager")
+  accountPositions: [AccountPosition!]! @derivedFrom(field: "pairManager")
+  _lastUpdatedBlock: BigInt!
+  _lastUpdatedTimestamp: BigInt!
+  _previousTvlTotalInToken1: Float!
+}
+
+type PairManagerReturn @entity {
+  id: ID!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  apr1: Float!
+  apy1: Float!
+  apr7: Float!
+  apy7: Float!
+  apr30: Float!
+  apy30: Float!
+  _snapshot1: FeeSnapshot!
+  _snapshot7: FeeSnapshot!
+  _snapshot30: FeeSnapshot!
+}
+
+type FeeSnapshot @entity {
+  id: ID!
+  type: SnapshotType!
+  pairManager: PairManager!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  tvl0: BigInt!
+  tvl1: BigInt!
+  tvlTotalInToken1: Float!
+  fee0: BigInt!
+  fee1: BigInt!
+  feeTotalInToken1: Float!
+  feeIncrementInToken1: Float!
+  yieldIncrement: Float!
+  cumulativeYield: Float!
+  _feeIncrementAdjustment: Float!
+  _previousCumulativeYield: Float!
+}
+
+type AccountPosition @entity {
+  id: ID!
+  account: Account!
+  pairManager: PairManager!
+  shares: BigInt!
+}
+
+type Account @entity {
+  id: ID!
+  positions: [AccountPosition!]! @derivedFrom(field: "account")
+}
+
+type Token @entity {
+  id: ID!
+  type: TokenType!
+  symbol: String!
+  name: String!
+  decimals: Int!
+  priceUsd: Float!
+  lastUpdatedBlock: BigInt!
+  lastUpdatedTimestamp: BigInt!
+}

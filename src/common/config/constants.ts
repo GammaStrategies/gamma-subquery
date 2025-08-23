@@ -1,0 +1,13 @@
+// Constants for SubQuery migration
+
+export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
+export const DEAD_ADDRESS = "0x0000000000000000000000000000000000000000";
+export const ADDRESS_DEAD = "0x0000000000000000000000000000000000000000";
+
+export const ZERO_BI = 0n;
+export const ONE_BI = 1n;
+export const ZERO_BD = 0.0;
+export const ONE_BD = 1.0;
+
+export const DAY_SECONDS = 86400;
+export const YEAR_SECONDS = 31536000;
