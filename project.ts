@@ -40,7 +40,7 @@ const project: EthereumProject = {
   dataSources: [
     {
       kind: EthereumDatasourceKind.Runtime,
-      startBlock: 26713673,
+      startBlock: 27282317,
       options: {
         abi: "HypeRegistry",
         address: "0x2A078554094f5e342B69E5b6D3665507283EfBa1",
@@ -59,15 +59,15 @@ const project: EthereumProject = {
             kind: EthereumHandlerKind.Block,
             handler: "handleOnce",
             filter: {
-              modulo: 26713164,
+              modulo: 27282317,
             },
           },
           {
             kind: EthereumHandlerKind.Block,
             handler: "handle1h",
             filter: {
-              modulo: 1800,
-            },
+              modulo: 50,
+            }
           },
           {
             kind: EthereumHandlerKind.Event,

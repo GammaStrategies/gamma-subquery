@@ -37,7 +37,7 @@ services:
       - --batch-size=20
       - --unfinalized-blocks=true
       - --unsafe
-      - --log-level=info
+      - --log-level=warn
 
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://subquery-node:3000/ready >/dev/null 2>&1"]
