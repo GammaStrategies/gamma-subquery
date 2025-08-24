@@ -34,9 +34,10 @@ services:
       - -f=/app
       - --db-schema=app
       - --workers=1
-      - --batch-size=5
+      - --batch-size=20
       - --unfinalized-blocks=true
       - --unsafe
+      - --log-level=info
 
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://subquery-node:3000/ready >/dev/null 2>&1"]

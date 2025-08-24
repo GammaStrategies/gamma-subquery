@@ -40,7 +40,7 @@ const project: EthereumProject = {
   dataSources: [
     {
       kind: EthereumDatasourceKind.Runtime,
-      startBlock: 26713164,
+      startBlock: 26713673,
       options: {
         abi: "HypeRegistry",
         address: "0x2A078554094f5e342B69E5b6D3665507283EfBa1",

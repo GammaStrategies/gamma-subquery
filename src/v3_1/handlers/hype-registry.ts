@@ -57,7 +57,7 @@ export async function handle1h(block: EthereumBlock): Promise<void> {
   
   // Get all active PairManagers
   // Note: In SubQuery, we need to query all PairManagers and filter for active ones
-  const allPairManagers = await PairManager.getByActive(true, { limit: 1000 });
+  const allPairManagers = await PairManager.getByActive(true, { limit: 80 });
   // Loop through all PairManagers, run get totalAmounts and update uncollected fees
   for (const pm of allPairManagers) {
     const pmAddress = pm.id;
