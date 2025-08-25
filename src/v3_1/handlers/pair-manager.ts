@@ -61,33 +61,22 @@ export async function handleTransfer(log: EthereumLog): Promise<void> {
 }
 
 export async function handleZeroBurn(log: EthereumLog): Promise<void> {
-  logger.warn(`[handleZeroBurn] Processing ZeroBurn event for ${log.address} at block ${log.block.number}`);
-  
+
   // Update latest amounts
   const fees0 = BigInt(log.args!.fees0.toString());
   const fees1 = BigInt(log.args!.fees1.toString());
-  logger.warn(`[handleZeroBurn] Fees - fees0: ${fees0}, fees1: ${fees1}`);
   
   if (fees0 === ZERO_BI && fees1 === ZERO_BI) {
     logger.warn(`[handleZeroBurn] Skipping zero burn ${log.transactionHash}-${log.logIndex}: zero amounts`);
     return;
   }
 
-  logger.warn(`[handleZeroBurn] Calling updateAmountsWithCall for ${log.address}`);
   const pm = await updateAmountsWithCall(log.address, log.block);
   
-  if (!pm) {
-    logger.warn(`[handleZeroBurn] updateAmountsWithCall returned undefined for ${log.address}`);
-    return;
+  if (!pm || !pm.active) {
+    logger.warn(`[handleZeroBurn] Invalid PM: ${log.address}`)
   }
   
-  if (!pm.active) {
-    logger.warn(`[handleZeroBurn] PairManager ${log.address} is not active, skipping`);
-    return;
-  }
-  
-  logger.warn(`[handleZeroBurn] PairManager updated successfully, proceeding with processZeroBurn`)
-
   await processZeroBurn(
     log.address,
     fees0,

@@ -4,10 +4,10 @@
   "description": "This project can be use as a starting point for developing your new Ethereum SubQuery project",
   "main": "dist/index.js",
   "scripts": {
-    "build": "subql codegen && subql build .",
+    "build": "subql codegen && subql build",
     "codegen": "subql codegen",
     "start:docker": "docker compose pull && docker compose up --remove-orphans",
-    "dev": "subql codegen && subql build . && docker compose pull && docker compose up --remove-orphans",
+    "dev": "subql codegen && subql build && docker compose pull && docker compose up --remove-orphans",
     "prepack": "rm -rf dist && npm run build",
     "test": "subql build . && subql-node-ethereum test",
     "build:develop": "NODE_ENV=develop subql codegen && NODE_ENV=develop subql build ."
@@ -26,7 +26,7 @@
     "assert": "^2.0.0"
   },
   "devDependencies": {
-    "@subql/cli": "latest",
+    "@subql/cli": "5.12.0",
     "@subql/testing": "latest",
     "@subql/node-ethereum": "latest",
     "ethers": "^5.7.2",

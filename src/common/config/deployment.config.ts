@@ -40,7 +40,7 @@ const deploymentConfigs: Record<string, DeploymentConfig> = {
     poolVersion: "uniswapV3",
     poolManager: "0x0000000000000000000000000000000000000000",
     feeCalcMethod: "oneOverFees",
-    blocks1h: 1800n, // ~300 blocks per hour on Ethereum mainnet
+    blocks1h: 1800n,
     getTotalsContract: "0x0bc5004589cb9a3039c5deb5b05a947fe1847a0d",
     getTotalsContractStartBlock: 27282317n,
     codeVersion: "1.0.0",

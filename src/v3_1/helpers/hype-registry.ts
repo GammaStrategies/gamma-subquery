@@ -12,14 +12,14 @@ export async function initializePairManagers(registryAddress: string): Promise<v
   const registryContract = HypeRegistry__factory.connect(registryAddress, api);
   
   const totalPairCount = await registryContract.counter();
-  logger.warn(`Initializing ${totalPairCount} pairs`);
+  logger.info(`Initializing ${totalPairCount} pairs`);
   
   for (let i = 0; i < Number(totalPairCount); i++) {
     const hypeInfo = await registryContract.hypeByIndex(BigInt(i));
     const pmAddress = hypeInfo[0];
     const pmIndex = hypeInfo[1];
     
-    logger.warn(`${pmAddress} at index ${pmIndex}`);
+    logger.info(`${pmAddress} at index ${pmIndex}`);
     
     if (BigInt(pmIndex.toString()) > ZERO_BI) {
       if (!(await isValidPairManager(pmAddress))) {

@@ -36,7 +36,6 @@ services:
       - --workers=1
       - --batch-size=20
       - --unfinalized-blocks=true
-      - --unsafe
       - --log-level=warn
 
     healthcheck:

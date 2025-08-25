@@ -41,5 +41,5 @@ export async function processZeroBurn(
 
   await pm!.save();
 
-  await updatePairManagerReturn(pmAddress);
+  // await updatePairManagerReturn(pmAddress);
 }
